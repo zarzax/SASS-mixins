@@ -1,0 +1,9 @@
+//box shadows using CSS3 and browser specific methods
+
+=box-shadow(!x = 5px, !y = 5px, !radius = 5px, !color = #666)
+  box-shadow=  !x !y !radius !color
+  -moz-box-shadow= !x !y !radius !color
+  -webkit-box-shadow= !x !y !radius !color
+
+=box-shadow-ie(!x = 5, !y = 5, !color = "grey")
+  filter= "progid:DXImageTransform.Microsoft.DropShadow( OffX=" + !x ", OffY=" + !y ", Color=\'" + !color + "\', Positive=\'true\' )"

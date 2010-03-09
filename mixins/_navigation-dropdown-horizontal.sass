@@ -1,0 +1,324 @@
+@import border_radius.sass
+
+//**
+  Adds dropdown menu structure starting at the base div
+
+=navigation-dropdown
+  +navigation-dropdown-structure
+  +navigation-dropdown-style
+
+=navigation-dropdown-structure
+  clear: both
+
+  ul.top-level
+    float: left
+  
+  // reset the style and box model
+  ul.top-level, ul.top-level li, ul.top-level ul.sub-level
+    list-style-image: none
+    list-style-position: outside
+    list-style-type: none
+    margin: 0
+    padding: 0
+  
+  ul.top-level > li
+    float: left
+    line-height: 1.3em
+    margin-right: 5px
+    padding: 7px 10px
+    vertical-align: middle
+  
+  
+  ul.top-level ul.sub-level
+    left: 0
+    position: absolute
+    top: 100%
+    visibility: hidden
+    width: 200px
+  
+  ul.top-level ul.sub-level li
+    float: none
+    padding: 3px 10px
+  
+  // set the on mouse over states
+  ul.top-level > li:hover, ul.top-level > li:focus 
+    position: relative
+    display: block
+    z-index: 999999
+    
+  ul.top-level li:hover > ul, ul.top-level li:focus > ul   
+    visibility: visible
+    z-index: 999999
+
+=navigation-dropdown-style
+  font-family: arial, helvetica, sans-serif
+  
+  ul.top-level
+    font-weight: bold
+  
+  ul.top-level > li
+    border: 1px #FFFFFF solid
+    color: #000
+    +border-radius(5px)
+  
+  ul.top-level > li > a, ul.top-level > li > p
+    border-bottom: 2px #333 solid
+  
+  // setup none hover links
+  ul.top-level a, ul.top-level a:link, ul.top-level a:visited
+    color: #000
+    text-decoration: none
+    
+  ul.top-level li.with-sub a, ul.top-level li.with-sub a:link, ul.top-level li.with-sub a:visited
+    text-decoration: none  
+    
+  ul.top-level .with-sub p, ul.top-level li.with-sub
+    cursor: default
+  
+  ul.top-level ul.sub-level
+    background-color: #99BBE8
+    border: 1px #99BBE8 solid
+    +border-radius(5px)
+    +border-radius-top-left(0)
+  
+  ul.top-level ul.sub-level li
+    font-weight: normal
+
+  // set the default dropdown arrow
+  ul.top-level li.with-sub
+    background-image: url(../../images/dropdown-arrow.png)
+    background-position: 95% 13px
+    background-repeat: no-repeat
+    padding-right: 20px
+  
+  // set the on mouse over states
+  ul.top-level > li:hover, ul.top-level > li:focus 
+    background-color: #99BBE8
+    border: 1px #99BBE8 solid
+    +border-radius(5px)
+  
+  ul.top-level li:hover > ul, ul.top-level li:focus > ul   
+    margin-left: -1px
+    
+  ul.top-level > li.with-sub:hover, ul.top-level > li.with-sub:focus
+    border-bottom: none
+    +border-radius(0)
+    +border-radius-top(5px)
+   
+  ul.top-level li:hover a, ul.top-level li:focus a, ul.top-level li.with-sub a:hover, ul.top-level li.with-sub a:focus
+    text-decoration: underline 
+    
+  // set the on selected states
+  ul.top-level > li.selected, ul.top-level li.sub-selected
+    background-color: #99BBE8
+    
+  ul.sub-level li.selected a
+    border-bottom: 3px #333 solid
+    font-weight: bold
+    // indent to show difference between other links
+    margin-left: 10px 
+
+=dropdown-two
+  a, p
+    display: block
+  p
+    cursor: default
+    
+  ul.top-level
+    list-style: none
+    float: left
+    overflow: auto
+    & > li
+      float: left
+
+    ul.sub-level
+      position: absolute
+      width: 200px
+      left: -999em
+      z-index: 999999
+      background-color: #FFF
+  
+    li:hover, li:focus, li.hover 
+      ul.sub-level
+        left: auto
+
+=dropdown-two-style
+  a, p
+    color: #222
+    padding: 3px
+    text-decoration: none
+    
+  ul.top-level
+    padding: 0
+    margin: 0
+    list-style: none
+    float: left
+    & > li
+      padding: 0 10px 
+    li.with-sub
+      background-image: url(../../images/dropdown-arrow.png)
+      background-position: 95% 10px
+      background-repeat: no-repeat
+      padding-right: 20px
+
+    ul.sub-level
+      background-color: #FFF
+
+=old-dropdown-style
+  font-family: arial, helvetica, sans-serif
+  
+  ul.top-level
+    font-weight: bold
+    
+  // reset the style and box model
+  ul.top-level, ul.top-level li, ul.top-level ul.sub-level
+    list-style-image: none
+    list-style-position: outside
+    list-style-type: none
+    margin: 0
+    padding: 0
+      
+  ul.top-level > li
+    line-height: 1.3em
+    margin-right: 5px
+    padding: 7px 10px
+    vertical-align: middle
+    border: 1px #FFFFFF solid
+    color: #000
+    +border-radius(5px)
+  
+  ul.top-level > li > a, ul.top-level > li > p
+    border-bottom: 2px #333 solid
+  
+  // setup none hover links
+  ul.top-level a, ul.top-level a:link, ul.top-level a:visited
+    color: #000
+    text-decoration: none
+    
+  ul.top-level li.with-sub a, ul.top-level li.with-sub a:link, ul.top-level li.with-sub a:visited
+    text-decoration: none  
+    
+  ul.top-level .with-sub p, ul.top-level li.with-sub
+    cursor: default
+  
+  ul.top-level ul.sub-level
+    background-color: #99BBE8
+    border: 1px #99BBE8 solid
+    +border-radius(5px)
+    +border-radius-top-left(0)
+  
+  ul.top-level ul.sub-level li
+    font-weight: normal
+    padding: 3px 10px
+
+  // set the default dropdown arrow
+  ul.top-level li.with-sub
+    background-image: url(../../images/dropdown-arrow.png)
+    background-position: 95% 13px
+    background-repeat: no-repeat
+    padding-right: 20px
+  
+  // set the on mouse over states
+  ul.top-level > li:hover, ul.top-level > li:focus 
+    background-color: #99BBE8
+    border: 1px #99BBE8 solid
+    +border-radius(5px)
+  
+  ul.top-level li:hover > ul, ul.top-level li:focus > ul   
+    margin-left: -11px
+    margin-top: 7px
+    
+  ul.top-level > li.with-sub:hover, ul.top-level > li.with-sub:focus
+    border-bottom: none
+    +border-radius(0)
+    +border-radius-top(5px)
+   
+  ul.top-level li:hover a, ul.top-level li:focus a, ul.top-level li.with-sub a:hover, ul.top-level li.with-sub a:focus
+    text-decoration: underline 
+    
+  // set the on selected states
+  ul.top-level > li.selected, ul.top-level li.sub-selected
+    background-color: #99BBE8
+    
+  ul.sub-level li.selected a
+    border-bottom: 3px #333 solid
+    font-weight: bold
+    // indent to show difference between other links
+    margin-left: 10px 
+      
+
+
+
+
+!t_font_color ||= #D1D9DF
+!t_background_color ||= #3F3F3F
+!t_background_hover_color ||= #4F4F4F
+!t_background_selected_color ||= #5F5F5F
+!t_border_color ||= #1F1F1F
+!t_li_border_color ||= #6F797F
+
+!t_top_font_size ||= 14px
+!t_sub_font_size ||= 13px
+
+=test-dropdown-style
+  font-family: "Segoe UI", "Tahoma", "Lucida Grande","Lucida Sans Unicode",Verdana,Helvetica,Arial,sans-serif
+  background-color= !t_background_color
+  border-top= 1px "solid" !t_border_color
+  border-bottom= 1px "solid" !t_border_color  
+  height: 30px
+  
+  // reset the style and box model
+  ul, li, p, a, a:link, a:visited
+    list-style-image: none
+    list-style-position: outside
+    list-style-type: none
+    margin: 0
+    padding: 0
+    text-decoration: none
+    font-weight: normal
+    font-size= !t_top_font_size
+    color= !t_font_color
+  ul.top-level .with-sub p, ul.top-level li.with-sub
+    cursor: default    
+  ul.sub-level a
+    font-size= !t_sub_font_size
+
+  ul.top-level
+    float: right
+      
+  ul.top-level > li
+    height: 20px
+    padding: 5px 10px
+    border-right= 1px "solid" !t_li_border_color
+    
+  ul.top-level ul.sub-level
+    background-color= !t_background_hover_color
+  ul.top-level ul.sub-level li
+    padding: 3px 0 3px 3px
+
+  // set the default dropdown arrow
+  ul.top-level li.with-sub
+    background-image: url(../../images/dropdown-arrow.png)
+    background-position: 95% 13px
+    background-repeat: no-repeat
+    padding-right: 20px
+  
+  // set the on mouse over states
+  ul.top-level > li:hover, ul.top-level > li:focus 
+    background-color= !t_background_hover_color
+    
+  ul.top-level li:hover > ul, ul.top-level li:focus > ul, ul.top-level li.hover > ul
+    margin: 6px 0 0 -10px   
+    
+  ul.top-level li:hover > a, ul.top-level li:focus > a
+    text-decoration: underline 
+    
+  // set the on selected states
+  ul.top-level > li.selected, ul.top-level li.sub-selected
+    background-color= !t_background_selected_color
+    
+  ul.sub-level li.selected a
+    font-weight: bold
+    // indent to show difference between other links
+    margin-left: 7px
+      

@@ -1,0 +1,10 @@
+// Transparency mixin using CSS3 and browser specific methods
+=transparency(!value)
+  // Transparency
+  // Modern Browsers
+  opacity= !value
+  // IE 8
+  -ms-filter= "progid:DXImageTransform.Microsoft.Alpha(Opacity=" !value * 100 ")"
+  // IE 5-7
+  filter= "alpha(opacity=" !value * 100 ")"
+  zoom: 1
